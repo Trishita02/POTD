@@ -10,13 +10,16 @@ public:
 	// Function returns the second
 	// largest elements
 	int print2largest(int arr[], int n) {
-	    set<int> temp;
-	    for(int i=0;i<n;i++)
-	    temp.insert(arr[i]);
-	    if(temp.size()==1) return -1;
-	    auto itr=temp.end();
-	    itr--; itr--;
-	    return *itr;
+	    int max1=-1,max2=-1;
+	   for(int i=0;i<n;i++){
+	       if(max1<arr[i] && max1!=arr[i]){
+	           max2=max1;
+	           max1=arr[i];
+	       }
+	       else if(max2<arr[i] && max1>arr[i])
+	       max2=arr[i];
+	   }
+	   return max2;
 	}
 };
 
